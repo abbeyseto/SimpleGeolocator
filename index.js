@@ -27,16 +27,16 @@ function showPosition(position) {
     //infoWindow.open(map);
     //map.setCenter(pos);
 
-    //var geocoder = new google.maps.Geocoder;
+    var geocoder = new google.maps.Geocoder;
     // var infowindow = new google.maps.InfoWindow;
-   // geocodeLatLng(geocoder); // IMPORTANT: add map and infoWindow
+   geocodeLatLng(geocoder); // IMPORTANT: add map and infoWindow
 
-   // function geocodeLatLng(geocoder, map, infowindow) {
-     //   var latlng = { lat: pos.lat, lng: pos.lng };
-     //   console.log(pos.lat, pos.lng);
-     //   geocoder.geocode({ 'location': latlng }, function (results, status) {
-      //      if (status){// === 'OK') {
-       //         if (results[0]) {
+   function geocodeLatLng(geocoder, map, infowindow) {
+     var latlng = { lat: pos.lat, lng: pos.lng };
+        console.log(pos.lat, pos.lng);
+       geocoder.geocode({ 'location': latlng }, function (results, status) {
+           if (status){// === 'OK') {
+             if (results[0]) {
                     //map.setZoom(19);
                     // var marker = new google.maps.Marker({
                     //     position: latlng,
@@ -45,16 +45,16 @@ function showPosition(position) {
                     //infowindow.setContent(results[0].formatted_address);
                     //infowindow.open(map, marker);
                     var status = document.getElementById("demo");
-                  //  status.innerHTML = "Your location is: " + results[0].formatted_address;
-    status.innerHTML = "Your location is: " + pos.lat + ',' + pos.lng;
-              //  } else {
-              //      window.alert('No results found');
-              //  }
-          //  } else {
-          //      window.alert('Geocoder failed due to: ' + status);
-          //  }
-      //  });
-    //};
+                    status.innerHTML = "Your location is: " + results[0].formatted_address;
+
+               } else {
+                   window.alert('No results found');
+               }
+            } else {
+              window.alert('Geocoder failed due to: ' + status);
+           }
+       });
+    };
 }
 
 
