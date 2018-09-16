@@ -35,7 +35,7 @@ function showPosition(position) {
         var latlng = { lat: pos.lat, lng: pos.lng };
         console.log(pos.lat, pos.lng);
         geocoder.geocode({ 'location': latlng }, function (results, status) {
-            if (status === 'OK') {
+            if (status){// === 'OK') {
                 if (results[0]) {
                     //map.setZoom(19);
                     // var marker = new google.maps.Marker({
